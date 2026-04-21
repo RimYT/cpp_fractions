@@ -2,7 +2,6 @@
 #define FRACTIONS_FRACTIONS_H
 
 #include <stdexcept>
-#include <any>
 
 // im using "namespace" because i think it would be better
 namespace frc {
@@ -14,27 +13,29 @@ namespace frc {
         long denominator;
 
     public:
-        Fraction(long num, long den) : numerator(num), denominator(den) {
+        Fraction(long num, long den = 1) : numerator(den < 0 ? -num : num), denominator(den < 0 ? -den : den) {
             if (den == 0) {
                 throw std::runtime_error("You can't divide by zero!");
             }
         }
 
-        long getNumerator();
-        long getDenominator();
+        long getNumerator() const;
+        long getDenominator() const;
 
-        void power(float exponent);
+        void power(long exponent); // Fraction.power(long)                                          ||||| Powers the fraction
         void simplify(); // Fraction.simplify()                                                     ||||| Simplifies the fraction
-        float ToNum();
+        float ToNum(); // Fraction.ToNum()                                                          ||||| Converts fraction to float
 
         void print() const; // Fraction.print()                                                     ||||| Prints the fraction
     };
 
-    // algebraic operations
-    Fraction sumFractions(Fraction f1, Fraction f2); // sumFractions(Fraction, Fraction)            ||||| sums fractions
-    Fraction subtractFractions(Fraction f1, Fraction f2); // subtractFractions(Fraction, Fraction)  ||||| subtracts fractions
-    Fraction multiplyFractions(Fraction f1, Fraction f2); // multiplyFractions(Fraction, Fraction)  ||||| multiplies fractions
-    Fraction divideFractions(Fraction f1, Fraction f2); // divideFractions(Fraction, Fraction)      ||||| divides fractions
+    // arithmetic operations (with Fractions)
+    Fraction sum(Fraction& f1, Fraction& f2); // sumFractions(Fraction, Fraction)            ||||| sums fractions
+    Fraction subtract(Fraction& f1, Fraction& f2); // subtractFractions(Fraction, Fraction)  ||||| subtracts fractions
+    Fraction multiply(Fraction& f1, Fraction& f2); // multiplyFractions(Fraction, Fraction)  ||||| multiplies fractions
+    Fraction divide(Fraction& f1, Fraction& f2); // divideFractions(Fraction, Fraction)      ||||| divides fractions
+
+    // arithmetic operations (with Fractions)
 }
 
 

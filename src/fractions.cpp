@@ -1,12 +1,10 @@
 #include "fractions.h"
 #include <iostream>
-#include <numeric>
-#include <string>
 #include <stdexcept>
 #include <cmath>
 
 namespace frc {
-    // handlers
+    //  -------- handlers --------
     long gcd(long a, long b) {
         a = std::abs(a);
         b = std::abs(b);
@@ -34,16 +32,16 @@ namespace frc {
         return;
     }
 
-    // "class" funcs
-    long Fraction::getNumerator() {
+    //  -------- "class" funcs --------
+    long Fraction::getNumerator() const {
         return numerator;
     }
 
-    long Fraction::getDenominator() {
+    long Fraction::getDenominator() const {
         return denominator;
     }
 
-    void Fraction::power(float exponent) {
+    void Fraction::power(long exponent) {
         numerator = pow(numerator, exponent);
         denominator = pow(denominator, exponent);
 
@@ -64,9 +62,9 @@ namespace frc {
         std::cout << numerator << "/" << denominator << std::endl;
     }
 
-    // other funcs
 
-    Fraction sumFractions(Fraction f1, Fraction f2) {
+    // -------- arithmetic operations --------
+    Fraction sum(Fraction& f1, Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 
@@ -84,6 +82,52 @@ namespace frc {
         long f2_mul = common / f2_den;
 
         Fraction f = Fraction((f1_num * f1_mul) + (f2_num * f2_mul), common);
+        simplifyIfNeeded(f);
+        return f;
+    }
+
+    Fraction subtract(Fraction& f1, Fraction& f2) {
+        long f1_num = f1.getNumerator();
+        long f1_den = f1.getDenominator();
+
+        long f2_num = f2.getNumerator();
+        long f2_den = f2.getDenominator();
+
+        if(f1_den == f2_den) {
+            Fraction f = Fraction(f1_num - f2_num, f1_den);
+            simplifyIfNeeded(f);
+            return f;
+        }
+
+        long common = lcm(f1_den, f2_den);
+        long f1_mul = common / f1_den;
+        long f2_mul = common / f2_den;
+
+        Fraction f = Fraction((f1_num * f1_mul) - (f2_num * f2_mul), common);
+        simplifyIfNeeded(f);
+        return f;
+    }
+
+    Fraction multiply(Fraction& f1, Fraction& f2) {
+        long f1_num = f1.getNumerator();
+        long f1_den = f1.getDenominator();
+
+        long f2_num = f2.getNumerator();
+        long f2_den = f2.getDenominator();
+
+        Fraction f = Fraction(f1_num * f2_num, f1_den * f2_den);
+        simplifyIfNeeded(f);
+        return f;
+    }
+
+    Fraction divide(Fraction& f1, Fraction& f2) {
+        long f1_num = f1.getNumerator();
+        long f1_den = f1.getDenominator();
+
+        long f2_num = f2.getNumerator();
+        long f2_den = f2.getDenominator();
+
+        Fraction f = Fraction(f1_num * f2_den, f1_den * f2_num);
         simplifyIfNeeded(f);
         return f;
     }

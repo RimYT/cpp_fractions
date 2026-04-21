@@ -3,14 +3,13 @@
 
 using namespace frc;
 
-Fraction f1 = Fraction(2, 6);
+Fraction f1 = Fraction(5, -10);
 Fraction f2 = Fraction(1, 8);
+Fraction f3 = 10;
+Fraction f4 = Fraction(1, 2);
 
 int main() {
-    frc::AUTO_SIMPLIFY = true;
-    f1.print();
-    f1.power(2);
-    f1.print();
-
+    //AUTO_SIMPLIFY = true
+    divide(f4, f3).print();
     return 0;
 }
