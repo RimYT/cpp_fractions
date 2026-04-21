@@ -42,4 +42,16 @@ namespace frc {
 
         return false;
     }
+
+
+    bool isPositive(const Fraction& f) {
+        long num = f.getNumerator();
+        long den = f.getDenominator();
+
+        if(num > 0 || (num < 0 && den < 0)) {
+            return true;
+        }
+
+        return false;
+    }
 }

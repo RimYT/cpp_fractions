@@ -48,6 +48,8 @@ namespace frc {
     bool isGreater(const Fraction& f1, const Fraction& f2); // isGreater(Fraction, Fraction)
     bool isLess(const Fraction& f1, const Fraction& f2); // isLess(Fraction, Fraction)
 
+    bool isPositive(const Fraction& f);
+
     // arithmetic operations
     Fraction sum(const Fraction& f1, const Fraction& f2); // sumFractions(Fraction, Fraction)            ||||| Returns the sum of two fractions
     Fraction subtract(const Fraction& f1, const Fraction& f2); // subtractFractions(Fraction, Fraction)  ||||| Returns subtract of two fractions

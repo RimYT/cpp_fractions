@@ -11,7 +11,7 @@ Fraction f4 = Fraction(2, 3);
 Fraction f5 = Fraction(13, 5);
 
 int main() {
-    AUTO_SIMPLIFY = true;
-    sum(95, floatToFraction(3.5)).print(Mixed);
+    //AUTO_SIMPLIFY = true;
+    cout << isPositive(divide(f4, 1));
     return 0;
 }
