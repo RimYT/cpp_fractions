@@ -1,4 +1,4 @@
-#include "src/fractions.h"
+#include "includes/fractions.h"
 #include <iostream>
 
 using namespace frc;
@@ -12,6 +12,6 @@ Fraction f5 = Fraction(13, 5);
 
 int main() {
     AUTO_SIMPLIFY = true;
-    f5.print(Mixed);
+    sum(95, floatToFraction(3.5)).print(Mixed);
     return 0;
 }
