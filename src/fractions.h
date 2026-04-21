@@ -24,6 +24,7 @@ namespace frc {
 
         void power(long exponent); // Fraction.power(long)                                          ||||| Powers the fraction
         long getWhole();
+        Fraction getRemainder();
 
         void inverse(); //Fraction.inverse()                                                        ||||| Inverses the fraction
         void simplify(); // Fraction.simplify()                                                     ||||| Simplifies the fraction

@@ -52,6 +52,12 @@ namespace frc {
         return numerator / denominator;
     }
 
+    Fraction Fraction::getRemainder() {
+        long remainder = numerator % denominator;
+
+        return Fraction(remainder, denominator);
+    }
+
     void Fraction::inverse() {
         long num = numerator;
         long den = denominator;
