@@ -48,6 +48,10 @@ namespace frc {
         simplifyIfNeeded(*this);
     }
 
+    long Fraction::getWhole() {
+        return numerator / denominator;
+    }
+
     void Fraction::inverse() {
         long num = numerator;
         long den = denominator;

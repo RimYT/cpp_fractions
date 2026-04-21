@@ -23,7 +23,7 @@ namespace frc {
         long getDenominator() const;
 
         void power(long exponent); // Fraction.power(long)                                          ||||| Powers the fraction
-
+        long getWhole();
 
         void inverse(); //Fraction.inverse()                                                        ||||| Inverses the fraction
         void simplify(); // Fraction.simplify()                                                     ||||| Simplifies the fraction
