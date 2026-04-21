@@ -10,7 +10,7 @@ Fraction f3 = 10;
 Fraction f4 = Fraction(3, 2);
 
 int main() {
-    //AUTO_SIMPLIFY = true;
-    f1.abs().print();
+    AUTO_SIMPLIFY = true;
+    floatToFraction(1.8).getRemainder().print();
     return 0;
 }
