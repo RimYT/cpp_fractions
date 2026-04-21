@@ -23,6 +23,9 @@ long gcd(long a, long b) {
 
     return mn;
 }
+long lcm(long a, long b) {
+    return (a * b) / gcd(a, b);
+}
 
 // "class" funcs
 long Fraction::getNumerator() {
@@ -54,3 +57,20 @@ void Fraction::print() const {
 
 // other funcs
 
+Fraction sumFractions(Fraction f1, Fraction f2) {
+    long f1_num = f1.getNumerator();
+    long f1_den = f1.getDenominator();
+
+    long f2_num = f2.getNumerator();
+    long f2_den = f2.getDenominator();
+
+    if(f1_den == f2_den) {
+        return Fraction(f1_num + f2_num, f1_den);
+    }
+
+    long common = lcm(f1_den, f2_den);
+    long f1_mul = common / f1_den;
+    long f2_mul = common / f2_den;
+
+    return Fraction((f1_num * f1_mul) + (f2_num * f2_mul), common);
+}
