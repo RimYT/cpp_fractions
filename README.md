@@ -2,13 +2,9 @@
 
 My "project". The code was written entirely by me. AI and other resources were used only for information, not for writing the code itself
 
----
-
 ## Table of Contents
 * [Project Rules](#project-rules)
 * [Documentation](#documentation)
-
----
 
 ## Project Rules
 
@@ -29,13 +25,8 @@ To maximize learning and skill development, this project follows a strict set of
 * **Algorithm Concepts:** Researching the *theory* behind algorithms (not the code) when necessary (e.g., the logic behind finding GCD/LCM)
 * **Mathematical Assistance:** Using resources to clarify mathematical rules (e.g., the process of adding fractions) if stuck
 
----
-
-*This project serves as a testament to my personal coding journey and commitment to fundamental learning*
-
+*This project serves as a testament to my personal coding journey and commitment to fundamental learning* </br>
 *This file was written by AI, cuz idk how to write .md files xd*
-
----
 
 ## Documentation
 
