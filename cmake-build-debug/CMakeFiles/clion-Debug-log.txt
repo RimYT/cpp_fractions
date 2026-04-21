@@ -1,1 +1,0 @@
-Cannot save file \\wsl$\Ubuntu\home\furrylover\Fractions\cmake-build-debug\CMakeFiles\clion-environment.txt
