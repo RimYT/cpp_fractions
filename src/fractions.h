@@ -3,6 +3,12 @@
 
 #include <stdexcept>
 
+typedef enum {
+  Common,
+  Decimal,
+  Mixed
+} FractionType;
+
 // im using "namespace" because i think it would be better
 namespace frc {
     inline bool AUTO_SIMPLIFY = false;
@@ -22,17 +28,17 @@ namespace frc {
         long getNumerator() const;
         long getDenominator() const;
 
-        Fraction power(long exponent); // Fraction.power(long)                                           ||||| Returns the powered fraction
-        Fraction abs(); // Fraction.abs()                                                                ||||| Returns the abs of the fraction
-        long getWhole(); // Fraction.getWhole()                                                          ||||| Returns the whole part of the fraction
-        Fraction getRemainder(); // Fraction.getRemainder()                                              ||||| Returns the remainder of the fraction
+        Fraction power(long exponent) const; // Fraction.power(long)                                     ||||| Returns the powered fraction
+        Fraction abs() const; // Fraction.abs()                                                          ||||| Returns the abs of the fraction
+        long getWhole() const; // Fraction.getWhole()                                                    ||||| Returns the whole part of the fraction
+        Fraction getRemainder() const; // Fraction.getRemainder()                                        ||||| Returns the remainder of the fraction
 
 
-        Fraction inverse(); // Fraction.inverse()                                                        ||||| Returns the inverted fraction
+        Fraction inverse() const; // Fraction.inverse()                                                  ||||| Returns the inverted fraction
         void simplify(); // Fraction.simplify()                                                          ||||| Simplifies the fraction
-        float ToNum(); // Fraction.ToNum()                                                               ||||| Converts fraction to float and returns it
+        float ToNum() const; // Fraction.ToNum()                                                         ||||| Converts fraction to float and returns it
 
-        void print() const; // Fraction.print()                                                          ||||| Prints the fraction
+        void print(FractionType type = Common) const; // Fraction.print(FractionType)                    ||||| Prints the fraction
     };
 
     Fraction floatToFraction(float num); // floatToFraction(float)                                       ||||| Returns fraction

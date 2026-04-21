@@ -41,25 +41,25 @@ namespace frc {
         return denominator;
     }
 
-    Fraction Fraction::power(long exponent) {
+    Fraction Fraction::power(long exponent) const {
         Fraction f = Fraction(pow(numerator, exponent), pow(denominator, exponent));
         return simplifyIfNeeded(f);
     }
 
-    Fraction Fraction::abs() {
+    Fraction Fraction::abs() const {
         Fraction f = Fraction(std::abs(numerator), std::abs(denominator));
         return simplifyIfNeeded(f);
     }
 
-    long Fraction::getWhole() {
+    long Fraction::getWhole() const {
         return numerator / denominator;
     }
 
-    Fraction Fraction::getRemainder() {
+    Fraction Fraction::getRemainder() const {
         return Fraction(numerator % denominator, denominator);
     }
 
-    Fraction Fraction::inverse() {
+    Fraction Fraction::inverse() const {
         long num = numerator;
         long den = denominator;
 
@@ -73,13 +73,17 @@ namespace frc {
         denominator /= common;
     }
 
-    float Fraction::ToNum() {
+    float Fraction::ToNum() const {
         return float(numerator) / denominator;
     }
 
-    void Fraction::print() const {
-        std::cout << numerator << "/" << denominator << std::endl;
+    void Fraction::print(FractionType type) const {
+        if(type == Common) {std::cout << numerator << "/" << denominator << std::endl;}
+        else if(type == Decimal) {std::cout << this->ToNum() << std::endl;}
+        else {std::cout << this->getWhole() << " | " << this->getRemainder().getNumerator() << "/" << denominator << std::endl;}
     }
+
+    // ------- OTHER FUNCS -------
 
     Fraction floatToFraction(float num) {
         long den = 1;
