@@ -35,7 +35,7 @@ namespace frc {
         void print() const; // Fraction.print()                                                          ||||| Prints the fraction
     };
 
-    Fraction floatToFraction(float num); // floatToFraction(float)                                       ||||| Return fraction
+    Fraction floatToFraction(float num); // floatToFraction(float)                                       ||||| Returns fraction
 
     // arithmetic operations
     Fraction sum(const Fraction& f1, const Fraction& f2); // sumFractions(Fraction, Fraction)            ||||| Returns the sum of two fractions
