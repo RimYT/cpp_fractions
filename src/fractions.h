@@ -37,6 +37,9 @@ namespace frc {
 
     Fraction floatToFraction(float num); // floatToFraction(float)                                       ||||| Returns fraction
 
+    // compare operations
+    bool isEqual(const Fraction& f1, const Fraction& f2); // isEqual(Fraction, Fraction)
+
     // arithmetic operations
     Fraction sum(const Fraction& f1, const Fraction& f2); // sumFractions(Fraction, Fraction)            ||||| Returns the sum of two fractions
     Fraction subtract(const Fraction& f1, const Fraction& f2); // subtractFractions(Fraction, Fraction)  ||||| Returns subtract of two fractions
