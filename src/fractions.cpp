@@ -48,6 +48,14 @@ namespace frc {
         simplifyIfNeeded(*this);
     }
 
+    void Fraction::inverse() {
+        long num = numerator;
+        long den = denominator;
+
+        numerator = den;
+        denominator = num;
+    }
+
     void Fraction::simplify() {
         long common = gcd(numerator, denominator);
         numerator /= common;

@@ -10,6 +10,7 @@ Fraction f4 = Fraction(1, 2);
 
 int main() {
     //AUTO_SIMPLIFY = true
-    divide(f4, f3).print();
+    f2.inverse();
+    f2.print();
     return 0;
 }

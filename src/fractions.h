@@ -23,6 +23,9 @@ namespace frc {
         long getDenominator() const;
 
         void power(long exponent); // Fraction.power(long)                                          ||||| Powers the fraction
+
+
+        void inverse(); //Fraction.inverse()                                                        ||||| Inverses the fraction
         void simplify(); // Fraction.simplify()                                                     ||||| Simplifies the fraction
         float ToNum(); // Fraction.ToNum()                                                          ||||| Converts fraction to float
 
