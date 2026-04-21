@@ -1,12 +1,16 @@
 #include "src/fractions.h"
 #include <iostream>
 
-Fraction f1 = Fraction(1, 6);
+using namespace frc;
+
+Fraction f1 = Fraction(2, 6);
 Fraction f2 = Fraction(1, 8);
 
 int main() {
+    frc::AUTO_SIMPLIFY = true;
     f1.print();
-    f2.print();
-    sumFractions(f1, f2).print();
+    f1.power(2);
+    f1.print();
+
     return 0;
 }
