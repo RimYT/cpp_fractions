@@ -1,4 +1,1 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/furrylover/Fractions -B /home/furrylover/Fractions/cmake-build-debug
--- Configuring done
--- Generating done
--- Build files have been written to: /home/furrylover/Fractions/cmake-build-debug
+Cannot save file \\wsl$\Ubuntu\home\furrylover\Fractions\cmake-build-debug\CMakeFiles\clion-environment.txt

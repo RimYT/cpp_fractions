@@ -1,2 +1,0 @@
-/usr/bin/ar qc libFractions.a CMakeFiles/Fractions.dir/fractions.cpp.o
-/usr/bin/ranlib libFractions.a

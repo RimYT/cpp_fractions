@@ -1,3 +1,0 @@
-/home/furrylover/Fractions/cmake-build-debug/CMakeFiles/Fractions.dir
-/home/furrylover/Fractions/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/furrylover/Fractions/cmake-build-debug/CMakeFiles/rebuild_cache.dir
