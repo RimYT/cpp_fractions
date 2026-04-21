@@ -22,8 +22,9 @@ namespace frc {
         long getNumerator() const;
         long getDenominator() const;
 
-        Fraction power(long exponent); // Fraction.power(long)                               ||||| Return the powered fraction
-        long getWhole(); // Fraction.getWhole()                                              ||||| Return the whole part of the fraction
+        Fraction power(long exponent); // Fraction.power(long)                               ||||| Returns the powered fraction
+        Fraction abs(); // Fraction.abs()                                                    ||||| Returns the abs of the fraction
+        long getWhole(); // Fraction.getWhole()                                              ||||| Returns the whole part of the fraction
         Fraction getRemainder(); // Fraction.getRemainder()                                  ||||| Returns the remainder of the fraction
 
 

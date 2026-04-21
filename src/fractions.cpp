@@ -46,6 +46,11 @@ namespace frc {
         return simplifyIfNeeded(f);
     }
 
+    Fraction Fraction::abs() {
+        Fraction f = Fraction(std::abs(numerator), std::abs(denominator));
+        return simplifyIfNeeded(f);
+    }
+
     long Fraction::getWhole() {
         return numerator / denominator;
     }
