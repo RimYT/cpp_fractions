@@ -11,6 +11,6 @@ Fraction f4 = Fraction(3, 2);
 
 int main() {
     //AUTO_SIMPLIFY = true
-    (f4.getRemainder()).print();
+    sum(f4, 20).getRemainder().print();
     return 0;
 }

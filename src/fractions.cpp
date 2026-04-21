@@ -27,9 +27,9 @@ namespace frc {
     long lcm(long a, long b) {
         return (a * b) / gcd(a, b);
     }
-    void simplifyIfNeeded(Fraction &f) {
+    Fraction simplifyIfNeeded(Fraction f) {
         if(AUTO_SIMPLIFY) {f.simplify();}
-        return;
+        return f;
     }
 
     //  -------- "class" funcs --------
@@ -41,11 +41,9 @@ namespace frc {
         return denominator;
     }
 
-    void Fraction::power(long exponent) {
-        numerator = pow(numerator, exponent);
-        denominator = pow(denominator, exponent);
-
-        simplifyIfNeeded(*this);
+    Fraction Fraction::power(long exponent) {
+        Fraction f = Fraction(pow(numerator, exponent), pow(denominator, exponent));
+        return simplifyIfNeeded(f);
     }
 
     long Fraction::getWhole() {
@@ -53,17 +51,15 @@ namespace frc {
     }
 
     Fraction Fraction::getRemainder() {
-        long remainder = numerator % denominator;
-
-        return Fraction(remainder, denominator);
+        return Fraction(numerator % denominator, denominator);
     }
 
-    void Fraction::inverse() {
+    Fraction Fraction::inverse() {
         long num = numerator;
         long den = denominator;
 
-        numerator = den;
-        denominator = num;
+        Fraction f = Fraction(den, num);
+        return simplifyIfNeeded(f);
     }
 
     void Fraction::simplify() {
@@ -82,7 +78,7 @@ namespace frc {
 
 
     // -------- arithmetic operations --------
-    Fraction sum(Fraction& f1, Fraction& f2) {
+    Fraction sum(const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 
@@ -104,7 +100,7 @@ namespace frc {
         return f;
     }
 
-    Fraction subtract(Fraction& f1, Fraction& f2) {
+    Fraction subtract(const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 
@@ -126,7 +122,7 @@ namespace frc {
         return f;
     }
 
-    Fraction multiply(Fraction& f1, Fraction& f2) {
+    Fraction multiply(const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 
@@ -138,7 +134,7 @@ namespace frc {
         return f;
     }
 
-    Fraction divide(Fraction& f1, Fraction& f2) {
+    Fraction divide(const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 

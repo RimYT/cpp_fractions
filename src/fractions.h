@@ -22,22 +22,23 @@ namespace frc {
         long getNumerator() const;
         long getDenominator() const;
 
-        void power(long exponent); // Fraction.power(long)                                          ||||| Powers the fraction
-        long getWhole();
-        Fraction getRemainder();
+        Fraction power(long exponent); // Fraction.power(long)                               ||||| Return the powered fraction
+        long getWhole(); // Fraction.getWhole()                                              ||||| Return the whole part of the fraction
+        Fraction getRemainder(); // Fraction.getRemainder()                                  ||||| Returns the remainder of the fraction
 
-        void inverse(); //Fraction.inverse()                                                        ||||| Inverses the fraction
-        void simplify(); // Fraction.simplify()                                                     ||||| Simplifies the fraction
-        float ToNum(); // Fraction.ToNum()                                                          ||||| Converts fraction to float
 
-        void print() const; // Fraction.print()                                                     ||||| Prints the fraction
+        Fraction inverse(); // Fraction.inverse()                                            ||||| Returns the inverted fraction
+        void simplify(); // Fraction.simplify()                                              ||||| Simplifies the fraction
+        float ToNum(); // Fraction.ToNum()                                                   ||||| Converts fraction to float and returns it
+
+        void print() const; // Fraction.print()                                              ||||| Prints the fraction
     };
 
     // arithmetic operations (with Fractions)
-    Fraction sum(Fraction& f1, Fraction& f2); // sumFractions(Fraction, Fraction)            ||||| sums fractions
-    Fraction subtract(Fraction& f1, Fraction& f2); // subtractFractions(Fraction, Fraction)  ||||| subtracts fractions
-    Fraction multiply(Fraction& f1, Fraction& f2); // multiplyFractions(Fraction, Fraction)  ||||| multiplies fractions
-    Fraction divide(Fraction& f1, Fraction& f2); // divideFractions(Fraction, Fraction)      ||||| divides fractions
+    Fraction sum(const Fraction& f1, const Fraction& f2); // sumFractions(Fraction, Fraction)            ||||| Returns the sum of two fractions
+    Fraction subtract(const Fraction& f1, const Fraction& f2); // subtractFractions(Fraction, Fraction)  ||||| Returns subtract of two fractions
+    Fraction multiply(const Fraction& f1, const Fraction& f2); // multiplyFractions(Fraction, Fraction)  ||||| Returns multiply of two fractions
+    Fraction divide(const Fraction& f1, const Fraction& f2); // divideFractions(Fraction, Fraction)      ||||| Returns divide of two fractions
 
     // arithmetic operations (with Fractions)
 }
