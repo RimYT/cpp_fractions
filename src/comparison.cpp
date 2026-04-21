@@ -46,9 +46,8 @@ namespace frc {
 
     bool isPositive(const Fraction& f) {
         long num = f.getNumerator();
-        long den = f.getDenominator();
 
-        if(num > 0 || (num < 0 && den < 0)) {
+        if(num > 0) {
             return true;
         }
 
