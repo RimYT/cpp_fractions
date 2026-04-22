@@ -8,11 +8,18 @@ My "project". The code was written entirely by me. AI and other resources were u
   * [Preferred Approach](#preferred-approach-self-reliance)
   * [Permitted Uses](#permitted-uses)
 * [Documentation](#documentation)
-  * [Enums and Global Variables](#enums-and-global-variables)
+  * [Configuration & Enums](#configuration--enums)
+    * [FractionType (enum)](#fractiontype-enum)
+    * [Global Settings](#global-settings)
   * [Class: frc::Fraction](#class-frcfraction)
+    * [Constructor](#constructor)
+    * [Methods](#methods)
+    * [Operators](#operators)
   * [Global Functions (namespace frc)](#global-functions-namespace-frc)
-    * [Arithmetic & Utility](#arithmetic--utility)
+    * [Mathematical Operations](#mathematical-operations)
+    * [Utility Functions](#utility-functions)
     * [Comparison Operators](#comparison-operators)
+    * [Stream Output](#stream-output)
 
 ## Project Rules
 
@@ -38,42 +45,75 @@ To maximize learning and skill development, this project follows a strict set of
 
 ## Documentation
 
-### Enums and Global Variables
-| Feature | Type | Description |
-| :--- | :--- | :--- |
-| `FractionType` | `enum` | Types for printing: `Common`, `Decimal`, `Mixed` |
-| `AUTO_SIMPLIFY` | `bool` | Global flag to enable/disable automatic simplification (default: `false`) |
+## Configuration & Enums
 
-### Class: `frc::Fraction`
+### `FractionType` (Enum)
+Determines the formatting style for string conversion and printing
+* `Common`: Represented as `n/d` (e.g., `3/2`)
+* `Decimal`: Represented as a floating-point string (e.g., `1.5`)
+* `Mixed`: Represented as a whole number and a remainder (e.g., `1 | 1/2`)
 
-| Method | Return Type | Description                                                               |
-| :--- | :--- |:--------------------------------------------------------------------------|
-| `Fraction(long num, long den)` | Constructor | Creates a fraction. Throws `std::runtime_error` if `den` is 0             |
-| `getNumerator()` | `long` | Returns the numerator                                                     |
-| `getDenominator()` | `long` | Returns the denominator                                                   |
-| `power(long exponent)` | `Fraction` | Returns a new fraction raised to the given power                          |
-| `abs()` | `Fraction` | Returns the absolute value of the fraction                                |
-| `getWhole()` | `long` | Returns the integer (whole) part of the fraction                          |
-| `getRemainder()` | `Fraction` | Returns the remainder after taking the whole part                         |
-| `inverse()` | `Fraction` | Returns a new fraction with swapped numerator and denominator             |
-| `simplify()` | `void` | Simplifies the fraction in-place                                          |
-| `ToNum()` | `float` | Converts the fraction to a floating-point number                          |
-| `print(FractionType)` | `void` | Prints the fraction to console using specified format (default: `Common`) |
+### Global Settings
+| Variable | Type | Description                                                                                                                            |
+| :--- | :--- |:---------------------------------------------------------------------------------------------------------------------------------------|
+| `frc::AUTO_SIMPLIFY` | `bool` | If `true`, fraction automatically simplifies after every operation, the constructor automatically calls `simplify()`. Default: `false` |
+| `frc::STREAM_TYPE` | `FractionType` | Sets the format used by the `<<` stream operator. Default: `Common`                                                                    |
 
-### Global Functions (namespace `frc`)
+---
 
-#### Arithmetic & Utility
-| Function | Return Type | Description                                                     |
-| :--- | :--- |:----------------------------------------------------------------|
-| `floatToFraction(float)` | `Fraction` | Converts a `float` value into its `Fraction` representation.    |
-| `sum(f1, f2)` | `Fraction` | Returns the sum of two fractions (ex.:`f1 + f2`)                |
-| `subtract(f1, f2)` | `Fraction` | Returns the difference between two fractions (ex.:`f1 - f2`)    |
-| `multiply(f1, f2)` | `Fraction` | Returns the product of two fractions (ex.:`f1 * f2`)            |
-| `divide(f1, f2)` | `Fraction` | Returns the result of division of two fractions (ex.:`f1 / f2`) |
+## Class: `frc::Fraction`
 
-#### Comparison Operators
-| Function | Return Type | Description                         |
-| :--- | :--- |:------------------------------------|
-| `isEqual(f1, f2)` | `bool` | Checks if two fractions are equal   |
-| `isGreater(f1, f2)` | `bool` | Checks if `f1` is greater than `f2` |
-| `isLess(f1, f2)` | `bool` | Checks if `f1` is less than `f2`    |
+### Constructor
+`Fraction(long num, long den = 1)`
+* Creates a fraction with a numerator and denominator
+* **Note:** If the denominator is negative, the sign is automatically moved to the numerator
+* **Throws:** `std::runtime_error` if `den` is 0
+
+### Methods
+| Method | Return Type | Description                                                        |
+| :--- | :--- |:-------------------------------------------------------------------|
+| `getNumerator()` | `long` | Returns the numerator                                              |
+| `getDenominator()` | `long` | Returns the denominator                                            |
+| `getWhole()` | `long` | Returns the integer (whole) part of the fraction                   |
+| `getRemainder()` | `Fraction` | Returns the fractional remainder (the part left after `getWhole`). |
+| `simplify()` | `void` | Reduces the fraction to its simplest form in-place                 |
+| `str(FractionType)` | `std::string` | Returns a string representation based on the type provided         |
+| `print(FractionType)` | `void` | Prints the fraction to the standard output                         |
+
+### Operators
+* **Arithmetic (Assignment):** `+=`, `-=`, `*=`, `/=`
+* **Unary:** `-` (negation)
+* **Increment/Decrement:** `++`, `--` (both prefix and postfix supported)
+* **Type Casting:** `explicit operator float()`, `explicit operator double()`
+
+---
+
+## Global Functions (Namespace `frc`)
+
+### Mathematical Operations
+| Function | Return Type | Description                                   |
+| :--- | :--- |:----------------------------------------------|
+| `operator +` | `Fraction` | Returns the sum of two fractions              |
+| `operator -` | `Fraction` | Returns the difference between two fractions  |
+| `operator *` | `Fraction` | Returns the product of two fractions          |
+| `operator /` | `Fraction` | Returns the quotient of two fractions         |
+| `pow(base, exp)` | `Fraction` | Returns the fraction raised to a `long` power |
+| `abs(f)` | `Fraction` | Returns the absolute value of the fraction    |
+
+### Utility Functions
+| Function | Return Type | Description                                                        |
+| :--- | :--- |:-------------------------------------------------------------------|
+| `from_float(float)` | `Fraction` | Converts a float value into a `Fraction` object                    |
+| `to_string(f, type)` | `std::string` | Utility to convert a fraction to a string                          |
+| `inverse(f)` | `Fraction` | Returns a new fraction with swapped numerator and denominator      |
+| `floor(f)` | `long` | Returns the largest integer less than or equal to the fraction     |
+| `ceil(f)` | `long` | Returns the smallest integer greater than or equal to the fraction |
+| `round(f)` | `long` | Returns the fraction rounded to the nearest integer                |
+
+### Comparison Operators
+All standard comparison operators are overloaded to compare the mathematical value of two fractions:
+`==`, `!=`, `>`, `<`, `>=`, `<=`
+
+### Stream Output
+`std::ostream& operator << (std::ostream& stream, const Fraction& f)`
+Outputs the fraction to a stream using the format defined in `frc::STREAM_TYPE`
