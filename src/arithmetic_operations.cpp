@@ -85,6 +85,10 @@ namespace frc {
         return *this;
     }
 
+    Fraction Fraction::operator - () const {
+        return (*this) * (-1);
+    }
+
     // -------- Math Functions --------
     Fraction pow(const Fraction& base, const long& exponent) {
         Fraction f = Fraction(std::pow(base.getNumerator(), exponent), std::pow(base.getDenominator(), exponent));

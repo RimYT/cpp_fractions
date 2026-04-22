@@ -14,7 +14,7 @@ Fraction f6 = Fraction(32, 3);
 
 int main() {
     AUTO_SIMPLIFY = true;
-    f5.print(Decimal);
+    cout << to_string(-f5) << endl;
 
     return 0;
 }
