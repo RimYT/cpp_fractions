@@ -21,7 +21,6 @@ namespace frc {
         Fraction f = Fraction((f1_num * f1_mul) + (f2_num * f2_mul), common);
         return simplifyIfNeeded(f);
     }
-
     Fraction operator - (const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
@@ -41,7 +40,6 @@ namespace frc {
         Fraction f = Fraction((f1_num * f1_mul) - (f2_num * f2_mul), common);
         return simplifyIfNeeded(f);
     }
-
     Fraction operator * (const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
@@ -52,7 +50,6 @@ namespace frc {
         Fraction f = Fraction(f1_num * f2_num, f1_den * f2_den);
         return simplifyIfNeeded(f);
     }
-
     Fraction operator / (const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
@@ -69,24 +66,26 @@ namespace frc {
         *this = (*this) + f;
         return *this;
     }
-
     Fraction& Fraction::operator -= (const Fraction& f) {
         *this = (*this) - f;
         return *this;
     }
-
     Fraction& Fraction::operator *= (const Fraction& f) {
         *this = (*this) * f;
         return *this;
     }
-
     Fraction& Fraction::operator /= (const Fraction& f) {
         *this = (*this) / f;
         return *this;
     }
-
     Fraction Fraction::operator - () const {
         return (*this) * (-1);
+    }
+
+    // -------- Prefix Operators --------
+    Fraction& Fraction::operator ++ () {
+        (*this) += 1;
+        return *this;
     }
 
     // -------- Math Functions --------
@@ -94,16 +93,13 @@ namespace frc {
         Fraction f = Fraction(std::pow(base.getNumerator(), exponent), std::pow(base.getDenominator(), exponent));
         return simplifyIfNeeded(f);
     }
-
     Fraction abs(const Fraction& f) {
         Fraction f_abs = Fraction(std::abs(f.getNumerator()), f.getDenominator());
         return simplifyIfNeeded(f_abs);
     }
-
     long floor(const Fraction& f) {
         return std::floor(float(f));
     }
-
     long ceil(const Fraction& f) {
         return std::ceil(float(f));
     }

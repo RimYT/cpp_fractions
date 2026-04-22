@@ -40,6 +40,8 @@ namespace frc {
         Fraction& operator *= (const Fraction& f);
         Fraction& operator /= (const Fraction& f);
         Fraction operator - () const;
+        // -------- Prefix Operators --------
+        Fraction& operator ++ ();
 
         // -------- Useful Functions --------
         void simplify(); // Fraction.simplify()                                             ||||| Simplifies the fraction
