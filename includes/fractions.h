@@ -39,19 +39,21 @@ namespace frc {
         Fraction& operator -= (const Fraction& f);
         Fraction& operator *= (const Fraction& f);
         Fraction& operator /= (const Fraction& f);
+        Fraction operator - () const;
 
         // -------- Useful Functions --------
         void simplify(); // Fraction.simplify()                                             ||||| Simplifies the fraction
 
         explicit operator float() const {return float(numerator) / denominator;} // Overloaded float() operator
         explicit operator double() const {return double(numerator) / denominator;} // Overloaded double() operator
+        std::string str(const FractionType& type = Common) const;
 
         void print(const FractionType& type = Common) const; // Fraction.print(FractionType) ||||| Prints the fraction
     };
 
     // -------- Utils --------
     Fraction from_float(float num); // from_float(float)                                     ||||| Returns fraction
-
+    std::string to_string(const Fraction& f, const FractionType& type = Common);
     Fraction inverse(const Fraction& f); // inverse(Fraction)                                ||||| Returns the inverted fraction
 
     // -------- Comparison --------
