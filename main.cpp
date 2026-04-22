@@ -14,9 +14,12 @@ Fraction f6 = Fraction(32, 3);
 
 int main() {
     AUTO_SIMPLIFY = true;
+    STREAM_TYPE = Decimal;
     f1.print();
     (f1++).print();
     f1.print();
+
+    cout << f1 << endl;
 
     return 0;
 }

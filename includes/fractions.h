@@ -13,6 +13,7 @@ typedef enum {
 // I'm using "namespace" because I think it would be better
 namespace frc {
     inline bool AUTO_SIMPLIFY = false;
+    inline FractionType STREAM_TYPE = Common;
 
     class Fraction {
     private:
@@ -31,8 +32,8 @@ namespace frc {
         // -------- Getters --------
         long getNumerator() const;
         long getDenominator() const;
-        long getWhole() const; // Fraction.getWhole()                                       ||||| Returns the whole part of the fraction
-        Fraction getRemainder() const; // Fraction.getRemainder()                           ||||| Returns the remainder of the fraction
+        long getWhole() const; // Fraction.getWhole()                                        ||||| Returns the whole part of the fraction
+        Fraction getRemainder() const; // Fraction.getRemainder()                            ||||| Returns the remainder of the fraction
 
         // -------- Assignment Arithmetic Operations (arithmetic_operations.cpp) --------
         Fraction& operator += (const Fraction& f);
@@ -48,11 +49,11 @@ namespace frc {
         Fraction operator -- (int);
 
         // -------- Useful Functions --------
-        void simplify(); // Fraction.simplify()                                             ||||| Simplifies the fraction
-
         explicit operator float() const {return float(numerator) / denominator;} // Overloaded float() operator
         explicit operator double() const {return double(numerator) / denominator;} // Overloaded double() operator
-        std::string str(const FractionType& type = Common) const;
+        std::string str(const FractionType& type = Common) const; // utils.cpp
+
+        void simplify(); // Fraction.simplify()                                              ||||| Simplifies the fraction
 
         void print(const FractionType& type = Common) const; // Fraction.print(FractionType) ||||| Prints the fraction
     };
@@ -61,6 +62,8 @@ namespace frc {
     Fraction from_float(float num); // from_float(float)                                     ||||| Returns fraction
     std::string to_string(const Fraction& f, const FractionType& type = Common);
     Fraction inverse(const Fraction& f); // inverse(Fraction)                                ||||| Returns the inverted fraction
+
+    std::ostream& operator << (std::ostream& stream, const Fraction& f);
 
     // -------- Comparison --------
     bool operator == (const Fraction& f1, const Fraction& f2);

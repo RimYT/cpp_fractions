@@ -15,11 +15,6 @@ namespace frc {
         return simplifyIfNeeded(f);
     }
 
-    Fraction inverse(const Fraction& f) {
-        Fraction f_new = Fraction(f.getDenominator(), f.getNumerator());
-        return simplifyIfNeeded(f_new);
-    }
-
     std::string Fraction::str(const FractionType& type) const {
         switch(type) {
             case Common:
@@ -42,5 +37,31 @@ namespace frc {
 
     std::string to_string(const Fraction& f, const FractionType& type) {
         return f.str(type);
+    }
+
+    Fraction inverse(const Fraction& f) {
+        Fraction f_new = Fraction(f.getDenominator(), f.getNumerator());
+        return simplifyIfNeeded(f_new);
+    }
+
+    std::ostream& operator << (std::ostream& stream, const Fraction& f) {
+        switch(STREAM_TYPE) {
+            case Common:
+                stream << f.str(Common);
+                return stream;
+                break;
+            case Decimal:
+                stream << f.str(Decimal);
+                return stream;
+                break;
+            case Mixed:
+                stream << f.str(Mixed);
+                return stream;
+                break;
+            default:
+                stream << "Unknown STREAM_TYPE value";
+                return stream;
+                break;
+        }
     }
 }
