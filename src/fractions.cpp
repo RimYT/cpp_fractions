@@ -27,9 +27,17 @@ namespace frc {
     }
 
     void Fraction::print(const FractionType& type) const {
-        if(type == Common) {std::cout << numerator << "/" << denominator << std::endl;}
-        else if(type == Decimal) {std::cout << float(*this) << std::endl;}
-        else {std::cout << this->getWhole() << " | " << this->getRemainder().getNumerator() << "/" << denominator << std::endl;}
+        switch(type) {
+            case Common:
+                std::cout << numerator << "/" << denominator << std::endl;
+                break;
+            case Decimal:
+                std::cout << float(*this) << std::endl;
+                break;
+            case Mixed:
+                std::cout << this->getWhole() << " | " << this->getRemainder().getNumerator() << "/" << denominator << std::endl;
+                break;
+        }
     }
 }
 
