@@ -44,13 +44,9 @@ namespace frc {
         denominator /= common;
     }
 
-    float Fraction::ToNum() const {
-        return float(numerator) / denominator;
-    }
-
     void Fraction::print(FractionType type) const {
         if(type == Common) {std::cout << numerator << "/" << denominator << std::endl;}
-        else if(type == Decimal) {std::cout << this->ToNum() << std::endl;}
+        else if(type == Decimal) {std::cout << float(*this) << std::endl;}
         else {std::cout << this->getWhole() << " | " << this->getRemainder().getNumerator() << "/" << denominator << std::endl;}
     }
 }

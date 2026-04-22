@@ -44,7 +44,9 @@ namespace frc {
         // -------- Useful Functions --------
         Fraction inverse() const; // Fraction.inverse()                                                  ||||| Returns the inverted fraction
         void simplify(); // Fraction.simplify()                                                          ||||| Simplifies the fraction
-        float ToNum() const; // Fraction.ToNum()                                                         ||||| Converts fraction to float and returns it
+        explicit operator float() const {
+            return float(numerator) / denominator;
+        }
 
         void print(FractionType type = Common) const; // Fraction.print(FractionType)                    ||||| Prints the fraction
     };

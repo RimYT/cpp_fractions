@@ -12,9 +12,8 @@ Fraction f5 = Fraction(13, 5);
 Fraction f6 = Fraction(32, 3);
 
 int main() {
-    //AUTO_SIMPLIFY = true;
-    f3 += f4;
-
+    AUTO_SIMPLIFY = true;
+    (f1 + 10 + f2).print(Decimal);
 
     return 0;
 }
