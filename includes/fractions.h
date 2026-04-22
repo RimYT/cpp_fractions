@@ -24,6 +24,7 @@ namespace frc {
             if (den == 0) {
                 throw std::runtime_error("You can't divide by zero!");
             }
+            if(AUTO_SIMPLIFY) {this->simplify();}
         }
         // I decided to write all functions, that inside this class in fractions.cpp (I can change my mind)
 
@@ -50,6 +51,7 @@ namespace frc {
 
     // -------- Utils --------
     Fraction from_float(float num); // from_float(float)                                     ||||| Returns fraction
+
     Fraction inverse(const Fraction& f); // inverse(Fraction)                                ||||| Returns the inverted fraction
 
     // -------- Comparison --------
@@ -68,6 +70,7 @@ namespace frc {
     Fraction pow(const Fraction& base, const long& exponent);
     Fraction abs(const Fraction& f);
     long floor(const Fraction& f);
+    long ceil(const Fraction& f);
 }
 
 

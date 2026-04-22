@@ -99,4 +99,8 @@ namespace frc {
     long floor(const Fraction& f) {
         return std::floor(float(f));
     }
+
+    long ceil(const Fraction& f) {
+        return std::ceil(float(f));
+    }
 }
