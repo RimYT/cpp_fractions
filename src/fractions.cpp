@@ -20,39 +20,6 @@ namespace frc {
         return Fraction(numerator % denominator, denominator);
     }
 
-    bool Fraction::isEqual(const Fraction& f) const {
-        long f_num = f.getNumerator();
-        long f_den = f.getDenominator();
-
-        if(numerator * f_den == f_num * denominator) {
-            return true;
-        }
-
-        return false;
-    }
-
-    bool Fraction::isGreater(const Fraction& f) const {
-        long f_num = f.getNumerator();
-        long f_den = f.getDenominator();
-
-        if(numerator * f_den > f_num * denominator) {
-            return true;
-        }
-
-        return false;
-    }
-
-    bool Fraction::isLess(const Fraction& f) const {
-        long f_num = f.getNumerator();
-        long f_den = f.getDenominator();
-
-        if(numerator * f_den < f_num * denominator) {
-            return true;
-        }
-
-        return false;
-    }
-
     Fraction Fraction::power(long exponent) const {
         Fraction f = Fraction(pow(numerator, exponent), pow(denominator, exponent));
         return simplifyIfNeeded(f);

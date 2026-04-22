@@ -2,7 +2,7 @@
 #include "helpers.h"
 
 namespace frc {
-    Fraction sum(const Fraction& f1, const Fraction& f2) {
+    Fraction operator + (const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 
@@ -11,8 +11,7 @@ namespace frc {
 
         if(f1_den == f2_den) {
             Fraction f = Fraction(f1_num + f2_num, f1_den);
-            simplifyIfNeeded(f);
-            return f;
+            return simplifyIfNeeded(f);
         }
 
         long common = lcm(f1_den, f2_den);
@@ -20,11 +19,10 @@ namespace frc {
         long f2_mul = common / f2_den;
 
         Fraction f = Fraction((f1_num * f1_mul) + (f2_num * f2_mul), common);
-        simplifyIfNeeded(f);
-        return f;
+        return simplifyIfNeeded(f);
     }
 
-    Fraction subtract(const Fraction& f1, const Fraction& f2) {
+    Fraction operator - (const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 
@@ -33,8 +31,7 @@ namespace frc {
 
         if(f1_den == f2_den) {
             Fraction f = Fraction(f1_num - f2_num, f1_den);
-            simplifyIfNeeded(f);
-            return f;
+            return simplifyIfNeeded(f);;
         }
 
         long common = lcm(f1_den, f2_den);
@@ -42,11 +39,10 @@ namespace frc {
         long f2_mul = common / f2_den;
 
         Fraction f = Fraction((f1_num * f1_mul) - (f2_num * f2_mul), common);
-        simplifyIfNeeded(f);
-        return f;
+        return simplifyIfNeeded(f);
     }
 
-    Fraction multiply(const Fraction& f1, const Fraction& f2) {
+    Fraction operator * (const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 
@@ -54,11 +50,10 @@ namespace frc {
         long f2_den = f2.getDenominator();
 
         Fraction f = Fraction(f1_num * f2_num, f1_den * f2_den);
-        simplifyIfNeeded(f);
-        return f;
+        return simplifyIfNeeded(f);
     }
 
-    Fraction divide(const Fraction& f1, const Fraction& f2) {
+    Fraction operator / (const Fraction& f1, const Fraction& f2) {
         long f1_num = f1.getNumerator();
         long f1_den = f1.getDenominator();
 
@@ -66,7 +61,27 @@ namespace frc {
         long f2_den = f2.getDenominator();
 
         Fraction f = Fraction(f1_num * f2_den, f1_den * f2_num);
-        simplifyIfNeeded(f);
-        return f;
+        return simplifyIfNeeded(f);
+    }
+
+    // -------- Assignment Operations --------
+    Fraction& Fraction::operator += (const Fraction& f) {
+        *this = (*this) + f;
+        return *this;
+    }
+
+    Fraction& Fraction::operator -= (const Fraction& f) {
+        *this = (*this) - f;
+        return *this;
+    }
+
+    Fraction& Fraction::operator *= (const Fraction& f) {
+        *this = (*this) * f;
+        return *this;
+    }
+
+    Fraction& Fraction::operator /= (const Fraction& f) {
+        *this = (*this) / f;
+        return *this;
     }
 }

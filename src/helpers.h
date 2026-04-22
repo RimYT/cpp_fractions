@@ -5,6 +5,7 @@
 #include <cmath>
 
 inline long gcd(long a, long b) {
+    if(a == 0) {return std::abs(b);} else if(b == 0) {return std::abs(a);}
     a = std::abs(a);
     b = std::abs(b);
     long mx = std::max(a, b);

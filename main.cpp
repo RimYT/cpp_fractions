@@ -9,11 +9,11 @@ Fraction f2 = Fraction(1, 8);
 Fraction f3 = 10;
 Fraction f4 = Fraction(2, 3);
 Fraction f5 = Fraction(13, 5);
-Fraction f6 = Fraction(100, 10);
+Fraction f6 = Fraction(32, 3);
 
 int main() {
     //AUTO_SIMPLIFY = true;
-    cout << f3.isEqual(Fraction(100, 10));
+    f3 += f4;
 
 
     return 0;
