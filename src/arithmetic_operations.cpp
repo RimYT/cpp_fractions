@@ -91,6 +91,17 @@ namespace frc {
         (*this) -= 1;
         return *this;
     }
+    // -------- Postfix Operators --------
+    Fraction Fraction::operator ++ (int) {
+        Fraction copy {*this};
+        ++(*this);
+        return copy;
+    }
+    Fraction Fraction::operator -- (int) {
+        Fraction copy {*this};
+        --(*this);
+        return copy;
+    }
 
     // -------- Math Functions --------
     Fraction pow(const Fraction& base, const long& exponent) {

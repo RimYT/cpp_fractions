@@ -43,6 +43,9 @@ namespace frc {
         // -------- Prefix Operators --------
         Fraction& operator ++ ();
         Fraction& operator -- ();
+        // -------- Postfix Operators --------
+        Fraction operator ++ (int);
+        Fraction operator -- (int);
 
         // -------- Useful Functions --------
         void simplify(); // Fraction.simplify()                                             ||||| Simplifies the fraction

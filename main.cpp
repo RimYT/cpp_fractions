@@ -15,7 +15,7 @@ Fraction f6 = Fraction(32, 3);
 int main() {
     AUTO_SIMPLIFY = true;
     f1.print();
-    (--f1).print();
+    (f1++).print();
     f1.print();
 
     return 0;
