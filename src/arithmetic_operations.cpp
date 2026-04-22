@@ -105,6 +105,11 @@ namespace frc {
 
     // -------- Math Functions --------
     Fraction pow(const Fraction& base, const long& exponent) {
+        if(exponent < 0) {
+            Fraction f = Fraction(std::pow(base.getNumerator(), std::abs(exponent)), std::pow(base.getDenominator(), std::abs(exponent)));
+            return simplifyIfNeeded(1 / f);
+        }
+
         Fraction f = Fraction(std::pow(base.getNumerator(), exponent), std::pow(base.getDenominator(), exponent));
         return simplifyIfNeeded(f);
     }
