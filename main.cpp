@@ -15,7 +15,7 @@ Fraction f6 = Fraction(32, 3);
 int main() {
     AUTO_SIMPLIFY = true;
 
-    pow(f6, 0).print();
+    cout << floor(f5);
 
     return 0;
 }

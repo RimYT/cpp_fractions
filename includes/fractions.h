@@ -82,6 +82,7 @@ namespace frc {
     Fraction abs(const Fraction& f);
     long floor(const Fraction& f);
     long ceil(const Fraction& f);
+    long round(const Fraction& f);
 }
 
 

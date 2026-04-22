@@ -123,4 +123,7 @@ namespace frc {
     long ceil(const Fraction& f) {
         return std::ceil(float(f));
     }
+    long round(const Fraction& f) {
+        return std::round(float(f));
+    }
 }
