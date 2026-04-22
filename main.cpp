@@ -14,7 +14,7 @@ Fraction f6 = Fraction(32, 3);
 
 int main() {
     AUTO_SIMPLIFY = true;
-    cout << to_string(pow(f3, 2)) << endl;
+    cout << floor(f1) << endl;
 
     return 0;
 }

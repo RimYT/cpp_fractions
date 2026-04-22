@@ -95,4 +95,8 @@ namespace frc {
         Fraction f_abs = Fraction(std::abs(f.getNumerator()), f.getDenominator());
         return simplifyIfNeeded(f_abs);
     }
+
+    long floor(const Fraction& f) {
+        return std::floor(float(f));
+    }
 }

@@ -67,6 +67,7 @@ namespace frc {
     // -------- Math Functions --------
     Fraction pow(const Fraction& base, const long& exponent);
     Fraction abs(const Fraction& f);
+    long floor(const Fraction& f);
 }
 
 
