@@ -14,7 +14,9 @@ Fraction f6 = Fraction(32, 3);
 
 int main() {
     AUTO_SIMPLIFY = true;
-    cout << to_string(-f5) << endl;
+    f1.print();
+    (--f1).print();
+    f1.print();
 
     return 0;
 }

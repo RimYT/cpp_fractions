@@ -87,6 +87,10 @@ namespace frc {
         (*this) += 1;
         return *this;
     }
+    Fraction& Fraction::operator -- () {
+        (*this) -= 1;
+        return *this;
+    }
 
     // -------- Math Functions --------
     Fraction pow(const Fraction& base, const long& exponent) {

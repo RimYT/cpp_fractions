@@ -42,6 +42,7 @@ namespace frc {
         Fraction operator - () const;
         // -------- Prefix Operators --------
         Fraction& operator ++ ();
+        Fraction& operator -- ();
 
         // -------- Useful Functions --------
         void simplify(); // Fraction.simplify()                                             ||||| Simplifies the fraction
