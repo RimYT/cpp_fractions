@@ -4,13 +4,53 @@
 #include <stdexcept>
 
 namespace frc {
-    //  -------- "class" funcs --------
     long Fraction::getNumerator() const {
         return numerator;
     }
 
     long Fraction::getDenominator() const {
         return denominator;
+    }
+
+    long Fraction::getWhole() const {
+        return numerator / denominator;
+    }
+
+    Fraction Fraction::getRemainder() const {
+        return Fraction(numerator % denominator, denominator);
+    }
+
+    bool Fraction::isEqual(const Fraction& f) const {
+        long f_num = f.getNumerator();
+        long f_den = f.getDenominator();
+
+        if(numerator * f_den == f_num * denominator) {
+            return true;
+        }
+
+        return false;
+    }
+
+    bool Fraction::isGreater(const Fraction& f) const {
+        long f_num = f.getNumerator();
+        long f_den = f.getDenominator();
+
+        if(numerator * f_den > f_num * denominator) {
+            return true;
+        }
+
+        return false;
+    }
+
+    bool Fraction::isLess(const Fraction& f) const {
+        long f_num = f.getNumerator();
+        long f_den = f.getDenominator();
+
+        if(numerator * f_den < f_num * denominator) {
+            return true;
+        }
+
+        return false;
     }
 
     Fraction Fraction::power(long exponent) const {
@@ -21,14 +61,6 @@ namespace frc {
     Fraction Fraction::abs() const {
         Fraction f = Fraction(std::abs(numerator), std::abs(denominator));
         return simplifyIfNeeded(f);
-    }
-
-    long Fraction::getWhole() const {
-        return numerator / denominator;
-    }
-
-    Fraction Fraction::getRemainder() const {
-        return Fraction(numerator % denominator, denominator);
     }
 
     Fraction Fraction::inverse() const {

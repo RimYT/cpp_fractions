@@ -9,9 +9,12 @@ Fraction f2 = Fraction(1, 8);
 Fraction f3 = 10;
 Fraction f4 = Fraction(2, 3);
 Fraction f5 = Fraction(13, 5);
+Fraction f6 = Fraction(100, 10);
 
 int main() {
     //AUTO_SIMPLIFY = true;
-    cout << isPositive(divide(f4, 1));
+    cout << f3.isEqual(Fraction(100, 10));
+
+
     return 0;
 }

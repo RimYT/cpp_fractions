@@ -27,12 +27,15 @@ namespace frc {
 
         long getNumerator() const;
         long getDenominator() const;
-
-        Fraction power(long exponent) const; // Fraction.power(long)                                     ||||| Returns the powered fraction
-        Fraction abs() const; // Fraction.abs()                                                          ||||| Returns the abs of the fraction
         long getWhole() const; // Fraction.getWhole()                                                    ||||| Returns the whole part of the fraction
         Fraction getRemainder() const; // Fraction.getRemainder()                                        ||||| Returns the remainder of the fraction
 
+        bool isEqual(const Fraction& f) const; // Fraction.isEqual(Fraction)
+        bool isGreater(const Fraction& f) const; // Fraction.isGreater(Fraction)
+        bool isLess(const Fraction& f) const; // Fraction.isLess(Fraction)
+
+        Fraction power(long exponent) const; // Fraction.power(long)                                     ||||| Returns the powered fraction
+        Fraction abs() const; // Fraction.abs()                                                          ||||| Returns the abs of the fraction
 
         Fraction inverse() const; // Fraction.inverse()                                                  ||||| Returns the inverted fraction
         void simplify(); // Fraction.simplify()                                                          ||||| Simplifies the fraction
