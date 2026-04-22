@@ -13,7 +13,7 @@ Fraction f6 = Fraction(32, 3);
 
 int main() {
     AUTO_SIMPLIFY = true;
-    (f1 + 10 + f2).print(Decimal);
+    cout << double(f1 + 10 + f2);
 
     return 0;
 }
