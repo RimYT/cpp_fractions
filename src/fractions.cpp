@@ -20,31 +20,13 @@ namespace frc {
         return Fraction(numerator % denominator, denominator);
     }
 
-    Fraction Fraction::power(long exponent) const {
-        Fraction f = Fraction(pow(numerator, exponent), pow(denominator, exponent));
-        return simplifyIfNeeded(f);
-    }
-
-    Fraction Fraction::abs() const {
-        Fraction f = Fraction(std::abs(numerator), std::abs(denominator));
-        return simplifyIfNeeded(f);
-    }
-
-    Fraction Fraction::inverse() const {
-        long num = numerator;
-        long den = denominator;
-
-        Fraction f = Fraction(den, num);
-        return simplifyIfNeeded(f);
-    }
-
     void Fraction::simplify() {
         long common = gcd(numerator, denominator);
         numerator /= common;
         denominator /= common;
     }
 
-    void Fraction::print(FractionType type) const {
+    void Fraction::print(const FractionType& type) const {
         if(type == Common) {std::cout << numerator << "/" << denominator << std::endl;}
         else if(type == Decimal) {std::cout << float(*this) << std::endl;}
         else {std::cout << this->getWhole() << " | " << this->getRemainder().getNumerator() << "/" << denominator << std::endl;}

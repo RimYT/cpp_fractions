@@ -31,7 +31,7 @@ namespace frc {
 
         if(f1_den == f2_den) {
             Fraction f = Fraction(f1_num - f2_num, f1_den);
-            return simplifyIfNeeded(f);;
+            return simplifyIfNeeded(f);
         }
 
         long common = lcm(f1_den, f2_den);
@@ -83,5 +83,16 @@ namespace frc {
     Fraction& Fraction::operator /= (const Fraction& f) {
         *this = (*this) / f;
         return *this;
+    }
+
+    // -------- Math Functions --------
+    Fraction pow(const Fraction& base, const long& exponent) {
+        Fraction f = Fraction(std::pow(base.getNumerator(), exponent), std::pow(base.getDenominator(), exponent));
+        return simplifyIfNeeded(f);
+    }
+
+    Fraction abs(const Fraction& f) {
+        Fraction f_abs = Fraction(std::abs(f.getNumerator()), f.getDenominator());
+        return simplifyIfNeeded(f_abs);
     }
 }

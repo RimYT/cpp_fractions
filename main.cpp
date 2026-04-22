@@ -1,5 +1,6 @@
 #include "includes/fractions.h"
 #include <iostream>
+#include <cmath>
 
 using namespace frc;
 using namespace std;
@@ -13,7 +14,7 @@ Fraction f6 = Fraction(32, 3);
 
 int main() {
     AUTO_SIMPLIFY = true;
-    cout << double(f1 + 10 + f2);
+    cout << to_string(pow(f3, 2)) << endl;
 
     return 0;
 }

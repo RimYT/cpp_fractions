@@ -2,7 +2,7 @@
 #include "helpers.h"
 
 namespace frc {
-    Fraction floatToFraction(float num) {
+    Fraction from_float(float num) {
         long den = 1;
 
         while(num - (long)num > 0) {
@@ -11,5 +11,10 @@ namespace frc {
         }
         Fraction f = Fraction(num, den);
         return simplifyIfNeeded(f);
+    }
+
+    Fraction inverse(const Fraction& f) {
+        Fraction f_new = Fraction(f.getDenominator(), f.getNumerator());
+        return simplifyIfNeeded(f_new);
     }
 }

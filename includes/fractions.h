@@ -2,6 +2,7 @@
 #define FRACTIONS_FRACTIONS_H
 
 #include <stdexcept>
+#include <string>
 
 typedef enum {
   Common,
@@ -29,12 +30,9 @@ namespace frc {
         // -------- Getters --------
         long getNumerator() const;
         long getDenominator() const;
-        long getWhole() const; // Fraction.getWhole()                                                    ||||| Returns the whole part of the fraction
-        Fraction getRemainder() const; // Fraction.getRemainder()                                        ||||| Returns the remainder of the fraction
+        long getWhole() const; // Fraction.getWhole()                                       ||||| Returns the whole part of the fraction
+        Fraction getRemainder() const; // Fraction.getRemainder()                           ||||| Returns the remainder of the fraction
 
-        // -------- Math Functions --------
-        Fraction power(long exponent) const; // Fraction.power(long)                                     ||||| Returns the powered fraction
-        Fraction abs() const; // Fraction.abs()                                                          ||||| Returns the abs of the fraction
         // -------- Assignment Arithmetic Operations (arithmetic_operations.cpp) --------
         Fraction& operator += (const Fraction& f);
         Fraction& operator -= (const Fraction& f);
@@ -42,17 +40,19 @@ namespace frc {
         Fraction& operator /= (const Fraction& f);
 
         // -------- Useful Functions --------
-        Fraction inverse() const; // Fraction.inverse()                                                  ||||| Returns the inverted fraction
-        void simplify(); // Fraction.simplify()                                                          ||||| Simplifies the fraction
+        void simplify(); // Fraction.simplify()                                             ||||| Simplifies the fraction
+
         explicit operator float() const {return float(numerator) / denominator;} // Overloaded float() operator
         explicit operator double() const {return double(numerator) / denominator;} // Overloaded double() operator
 
-        void print(FractionType type = Common) const; // Fraction.print(FractionType)                    ||||| Prints the fraction
+        void print(const FractionType& type = Common) const; // Fraction.print(FractionType) ||||| Prints the fraction
     };
 
-    Fraction floatToFraction(float num); // floatToFraction(float)                                       ||||| Returns fraction
+    // -------- Utils --------
+    Fraction from_float(float num); // from_float(float)                                     ||||| Returns fraction
+    Fraction inverse(const Fraction& f); // inverse(Fraction)                                ||||| Returns the inverted fraction
 
-    // -------- Compare Operations --------
+    // -------- Comparison --------
     bool operator == (const Fraction& f1, const Fraction& f2);
     bool operator > (const Fraction& f1, const Fraction& f2);
     bool operator < (const Fraction& f1, const Fraction& f2);
@@ -64,6 +64,9 @@ namespace frc {
     Fraction operator - (const Fraction& f1, const Fraction& f2);
     Fraction operator * (const Fraction& f1, const Fraction& f2);
     Fraction operator / (const Fraction& f1, const Fraction& f2);
+    // -------- Math Functions --------
+    Fraction pow(const Fraction& base, const long& exponent);
+    Fraction abs(const Fraction& f);
 }
 
 
