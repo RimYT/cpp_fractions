@@ -4,14 +4,14 @@
 #include <stdexcept>
 #include <string>
 
-typedef enum {
-  Common,
-  Decimal,
-  Mixed
-} FractionType;
-
 // I'm using "namespace" because I think it would be better
 namespace frc {
+    typedef enum {
+      Common,
+      Decimal,
+      Mixed
+    } FractionType;
+
     inline bool AUTO_SIMPLIFY = false;
     inline FractionType STREAM_TYPE = Common; // Used in << operator
 
@@ -79,7 +79,7 @@ namespace frc {
     Fraction operator * (const Fraction& f1, const Fraction& f2);
     Fraction operator / (const Fraction& f1, const Fraction& f2);
     // -------- Math Functions --------
-    Fraction pow(const Fraction& base, const long& exponent);
+    Fraction pow(const Fraction& base, long exponent);
     Fraction abs(const Fraction& f);
     long floor(const Fraction& f);
     long ceil(const Fraction& f);
