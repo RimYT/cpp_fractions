@@ -15,7 +15,7 @@ Fraction f6 = Fraction(32, 3);
 int main() {
     AUTO_SIMPLIFY = true;
 
-    cout << floor(f5);
+    cout << (10 != f3);
 
     return 0;
 }

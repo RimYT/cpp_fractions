@@ -13,7 +13,7 @@ typedef enum {
 // I'm using "namespace" because I think it would be better
 namespace frc {
     inline bool AUTO_SIMPLIFY = false;
-    inline FractionType STREAM_TYPE = Common;
+    inline FractionType STREAM_TYPE = Common; // Used in << operator
 
     class Fraction {
     private:
@@ -71,6 +71,7 @@ namespace frc {
     bool operator < (const Fraction& f1, const Fraction& f2);
     bool operator >= (const Fraction& f1, const Fraction& f2);
     bool operator <= (const Fraction& f1, const Fraction& f2);
+    bool operator != (const Fraction& f1, const Fraction& f2);
 
     // -------- Arithmetic Operations --------
     Fraction operator + (const Fraction& f1, const Fraction& f2);
